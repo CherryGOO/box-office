@@ -3,6 +3,15 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: false
+    },
+    proxy: {
+      '/api': {
+        target: 'https://m.maizuo.com',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
     }
   },
   lintOnSave: false, // 直接关闭eslint检查规则关闭了
