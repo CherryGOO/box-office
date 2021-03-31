@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Films from '@/views/film'
-import Cinema from '@/views/cinema'
-import News from '@/views/news'
-import Mine from '@/views/mine'
-import NotFound from '@/views/notfound'
-import Nowplaying from '@/views/films/nowplaying'
-import Comingsoon from '@/views/films/comingsoon'
+// import Films from '@/views/film'
+// import Nowplaying from '@/views/films/nowplaying'
+// import Comingsoon from '@/views/films/comingsoon'
+// import Detail from '@/views/detail'
+// import Cinema from '@/views/cinema'
+// import News from '@/views/news'
+// import Mine from '@/views/mine'
+// import NotFound from '@/views/notfound'
 
 // 需要在vue中使用Router插件  背后的原理    调用了MyPlugin.install(Vue)方法
 Vue.use(Router)
@@ -14,16 +15,16 @@ Vue.use(Router)
 const routes = [
   {
     path: '/films', // 在url地址栏上输入的地址
-    component: Films, // 对应url地址栏的视图组件
+    component: () => import('@/views/film'), // 对应url地址栏的视图组件
     children: [
       {
         path: '/films/nowplaying',
-        component: Nowplaying,
+        component: () => import('@/views/films/nowplaying'),
         name: 'np'
       },
       {
         path: '/films/comingsoon',
-        component: Comingsoon,
+        component: () => import('@/views/films/comingsoon'),
         name: 'cs'
       },
       {
@@ -33,16 +34,20 @@ const routes = [
     ]
   },
   {
+    path: '/detail/:id',
+    component: () => import('@/views/detail')
+  },
+  {
     path: '/cinema',
-    component: Cinema
+    component: () => import('@/views/cinema')
   },
   {
     path: '/news',
-    component: News
+    component: () => import('@/views/news')
   },
   {
     path: '/mine',
-    component: Mine
+    component: () => import('@/views/mine')
   },
   {
     path: '/',
@@ -50,7 +55,7 @@ const routes = [
   },
   {
     path: '/404',
-    component: NotFound
+    component: () => import('@/views/notfound')
   },
   {
     path: '*', // 以上页面都为匹配上即跳转films页面

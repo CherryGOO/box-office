@@ -1,6 +1,13 @@
 <template>
     <div>
-        正在热映
+        <ul>
+          <li @click="toDetail(111)">
+              电影111
+          </li>
+          <li @click="toDetail(222)">
+              电影222
+          </li>
+        </ul>
     </div>
 </template>
 
@@ -9,6 +16,11 @@ export default {
   data () {
     return {
 
+    }
+  },
+  methods: {
+    toDetail (id) {
+      this.$router.push('/detail/' + id + '?title=jaja')
     }
   }
 }

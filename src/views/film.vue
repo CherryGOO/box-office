@@ -4,7 +4,7 @@
         轮播图
       </div>
       <ul>
-        <router-link
+        <!-- <router-link
           v-for="cont in contList"
           :key="cont.id"
           :to='cont.path'
@@ -12,6 +12,22 @@
           tag="li"
         >
           {{cont.title}}
+        </router-link> -->
+      <!-- v-slot 形式 -->
+        <router-link
+          v-for="cont in contList"
+          :key="cont.id"
+          :to='cont.path'
+          custom
+          active-class="active"
+          v-slot="{ isActive,navigate }"
+        >
+          <li
+            :class="isActive ? 'active' : '' "
+            @click="navigate"
+            @keypress.enter="navigate"
+            role="link"
+          >{{cont.title}}</li>
         </router-link>
       </ul>
 
@@ -58,7 +74,7 @@ export default {
         line-height: 50px;
       }
       .active {
-        color: orange;
+        color: #FF5F16;
       }
     }
   }

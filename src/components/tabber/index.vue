@@ -1,6 +1,6 @@
 <template>
   <ul>
-      <router-link
+      <!-- <router-link
         v-for="nav in navLink"
         :key="nav.id"
         :to='nav.path'
@@ -8,6 +8,26 @@
         tag="li"
       >
         {{nav.title}}
+      </router-link> -->
+
+      <!-- v-slot 形式 -->
+      <router-link
+        v-for="nav in navLink"
+        :key="nav.id"
+        :to='nav.path'
+        custom
+        active-class="active"
+        v-slot="{ isActive,navigate }"
+      >
+        <li
+          :class="isActive ? 'active' : '' "
+          @click="navigate"
+          @keypress.enter="navigate"
+          role="link"
+        >
+          <!-- <i class="icon" :class=""></i> -->
+          <p>{{nav.title}}</p>
+        </li>
       </router-link>
   </ul>
 </template>
@@ -45,7 +65,7 @@ export default {
             line-height: 45px;
         }
         .active {
-            color: orange;
+            color: #FF5F16;
         }
 
     }
