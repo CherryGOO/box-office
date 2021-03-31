@@ -1,28 +1,39 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    子组件数据---{{pmsg}}
+    <hello-world @change="change" :msg='msg'></hello-world>
+    <hr>
+    <One/>
+    <Two/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HelloWorld from '@/components/HelloWorld'
+import One from '@/components/One'
+import Two from '@/components/Two'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    'hello-world': HelloWorld,
+    One,
+    Two
+  },
+  methods: {
+    change (msg) {
+      this.pmsg = msg
+    }
+  },
+  data () {
+    return {
+      msg: 'hello-world....',
+      pmsg: ''
+    }
   }
 }
 </script>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang="scss" scoped>
+
 </style>
