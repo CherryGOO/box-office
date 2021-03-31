@@ -2,6 +2,7 @@
   <div id="app">
     子组件数据---{{pmsg}}
     <hello-world @change="change" :msg='msg'></hello-world>
+    <p>你好</p>
     <hr>
     <One/>
     <Two/>
