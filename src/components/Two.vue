@@ -1,19 +1,26 @@
 <template>
   <div>
-    <p :style={color:color}>app--two</p>
+    two组件--<button @click="changeColor">点击更改颜色</button>
   </div>
 </template>
 
 <script>
+import angle from '@/utils/bus'
+
 export default {
   data () {
     return {
-      color: 'red'
+      // color: 'red'
+    }
+  },
+  methods: {
+    changeColor () {
+      angle.$emit('change')
     }
   }
 }
 </script>
 
-<style>
+<style lang='scss' scoped>
 
 </style>
