@@ -12,7 +12,11 @@ export default {
     }
   },
   created () {
-    console.log(this.$route.params.id)
+    // console.log(this.$route.params.id)
+  },
+  beforeRouteUpdate (to, from, next) {
+    console.log('update...', this)
+    next()
   }
 }
 </script>

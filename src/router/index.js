@@ -48,6 +48,14 @@ const routes = [
   {
     path: '/mine',
     component: () => import('@/views/mine')
+    // beforeEnter (to, from, next) {
+    //   console.log('进来之前')
+    //   next()
+    // }
+  },
+  {
+    path: '/login',
+    component: () => import('@/views/login')
   },
   {
     path: '/',
@@ -66,5 +74,17 @@ const routes = [
 const router = new Router({
   routes // 配置路径与组件的映射
 })
+
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/mine') {
+//     if (localStorage.getItem('token')) {
+//       next()
+//     } else {
+//       next('/login')
+//     }
+//   } else {
+//     next()
+//   }
+// })
 
 export default router

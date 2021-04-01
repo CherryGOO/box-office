@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     toDetail (id) {
-      this.$router.push('/detail/' + id + '?title=jaja')
+      this.$router.push('/detail/' + id)
     }
   }
 }
