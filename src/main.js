@@ -11,6 +11,9 @@ import './stylesheets/main.scss'
 // 引入rem.js文件
 import './utils/rem.js'
 
+// 引入filters.js文件
+import './utils/filters.js'
+
 Vue.config.productionTip = false
 
 new Vue({

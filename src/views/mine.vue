@@ -5,6 +5,8 @@
 </template>
 
 <script>
+import { instance2 } from '@/utils/http'
+
 export default {
   data () {
     return {
@@ -13,7 +15,9 @@ export default {
   },
   beforeRouteEnter (to, from, next) {
     if (localStorage.getItem('token')) {
-      next()
+      instance2.post('/api/user/isloginin').then(res => {
+        next()
+      }).catch(() => next('/login'))
     } else {
       next('/login')
     }

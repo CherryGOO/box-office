@@ -43,7 +43,7 @@
 <script>
 import SwiperCom from '@/components/swiper'
 import Swiper from 'swiper'
-import instance from '@/utils/http'
+import { instance } from '@/utils/http'
 
 export default {
   components: {
@@ -74,7 +74,7 @@ export default {
         'X-Host': 'mall.cfg.common-banner'
       }
     }).then(res => {
-      console.log(res.data.data)
+      // console.log(res.data.data)
       this.banners = res.data.data
       // 实例化Swiper,划不过去 数据改变了，但是内部还在进行虚拟DOM的对比，对比才会渲染真实DOM
       this.$nextTick(() => { // 更新的延迟回调之后才会执行

@@ -5,11 +5,11 @@ module.exports = {
       errors: false
     },
     proxy: {
-      '/api': {
-        target: 'https://m.maizuo.com',
+      '/info': {
+        target: 'http://115.28.130.111:3000',
         changeOrigin: true,
         pathRewrite: {
-          '^/api': ''
+          '^/info': ''
         }
       }
     }

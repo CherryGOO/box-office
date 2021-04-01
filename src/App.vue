@@ -19,6 +19,9 @@ export default {
 </script>
 
 <style lang="scss">
+  div#app {
+    margin-bottom: .45rem;
+  }
 //  * {
 //    margin: 0;
 //    padding: 0;

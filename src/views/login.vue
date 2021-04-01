@@ -6,6 +6,9 @@
 </template>
 
 <script>
+import { instance2 } from '@/utils/http'
+// import axios from 'axios'
+
 export default {
   data () {
     return {
@@ -14,10 +17,19 @@ export default {
   },
   methods: {
     login () {
-      setTimeout(() => {
-        localStorage.setItem('token', 'CherryGGO')
+      instance2.post('/api/user/loginin', {
+        username: 'kitty',
+        password: 123
+      }).then(res => {
+        // console.log('3.login==>', res)
+
+        // 将后端返回的token令牌存入本地存储中
+        localStorage.setItem('token', res.token)
+        // 编程式导航
         this.$router.push('/mine')
-      }, 1000)
+      }).catch(err => {
+        console.log('err==>', err)
+      })
     }
   }
 }
